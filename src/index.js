@@ -9,11 +9,23 @@ dotenv.config({
 // improved version of "dotenv" is given below.
 // require('dotenv').config({path:'./env'});
 
-
+const port = process.env.PORT || 8000;
 // console.log("Process.env of env file: ", process.env) // it gives the object of data of this project's.
 
-connectDB();
+connectDB()
+.then(()=> {
+    app.on('Error', (err) => {
+        console.error(`Server error: ${err.message}`);
+        throw err;
+    })
 
+    app.listen(port, () => {
+        console.log(`Server is running on ${port}`);
+    });
+})
+.catch((err) =>{
+    console.log("Mongo connection failed!!", err);
+})
 
 
 

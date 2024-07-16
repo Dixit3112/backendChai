@@ -1,3 +1,24 @@
-import "dotenv/config"
+import express from "express";
+import cors from "cors";
+import cookieParser from "cookie-parser";
 
-console.log("process File of env file: ", process.env)
+const app = express();
+
+app.use(cors({
+    origin: process.env.CORS_ORIGIN,
+    credentials: true,
+    
+}));
+
+app.use(express.json({limit: "32kb"}))
+app.use(express.urlencoded({extended: true, limit: "32kb"})) // provides object's object
+app.use(express.static("public"))
+app.use(cookieParser())
+
+
+// cors:- Cross Origin Resource Source
+export { app }
+
+res.send((error, req, res, next) => {
+    //next is provide as middleware
+})
