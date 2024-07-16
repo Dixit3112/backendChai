@@ -10,8 +10,7 @@ dotenv.config({
 // require('dotenv').config({path:'./env'});
 
 
-console.log("Process.env of env file: ", process.env)
-
+// console.log("Process.env of env file: ", process.env) // it gives the object of data of this project's.
 
 connectDB();
 
