@@ -10,22 +10,18 @@ app.use(cors({
     
 }));
 
-app.use(express.json({limit: "32kb"}))
-app.use(express.urlencoded({extended: true, limit: "32kb"})) // provides object's object
-app.use(express.static("public"))
-app.use(cookieParser())
+app.use(express.json({limit: "16kb"}));
+app.use(express.urlencoded({extended: true, limit: "16kb"})); // provides object's object
+app.use(express.static("public"));
+app.use(cookieParser());
 
 //routes import
 import userRouter from "./routes/user.routes.js";
 
 
-// routes declaration // http://localhost:8000/api/v1/users/...
+// routes declaration 
 app.use("/api/v1/users", userRouter);   // http://localhost:8000/api/v1/users/register
 
 // cors:- Cross Origin Resource Source
 export { app }
-
-// res.send((error, req, res, next) => {
-//     //next is provide as middleware
-// })
-// 08:40 hrs
+// 08:30 hrs

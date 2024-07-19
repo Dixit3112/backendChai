@@ -1,5 +1,10 @@
 class ApiError extends Error {
-    constructor(message, statusCode, errors = [], stack = "") {
+    constructor(
+        message,
+        statusCode,
+        errors = [],
+        stack = ""
+    ){
         super(message);
         this.statusCode = statusCode;
         this.data = null;
@@ -17,4 +22,4 @@ class ApiError extends Error {
 
 export { ApiError }
 
-// read this keywords' porperty for getting basic knowledge.
+// read "this" keywords' porperty for getting basic knowledge.

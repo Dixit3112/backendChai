@@ -1,6 +1,4 @@
-// import mongoose from "mongoose";
-// import {DB_NAME} from "./constants.js";
-//  // improved version of "dotenv" is given below.
+
 // require('dotenv').config({path:'./env'});
 import express from "express";
 import connectDB from "./db/index.js";
@@ -17,49 +15,38 @@ const port = process.env.PORT || 8000;
 
 connectDB()
 .then(()=> {
-    app.on('Error', (err) => {
-        console.error(`Server error: ${err.message}`);
-        throw err;
+    app.get("", (req, res) => {
+        res.send(res.json({ Info: "I am dixit for backend developer" })); // get method done with json format
     })
-
-    app.get("/", (req, res) => {
-        res.send("I am dixit for backend developer")
-    })
-
     app.listen(port, () => {
-        console.log(`Server is running on ${port}`);
+        console.log(`⚙️ Server is running at port : ${process.env.PORT}`);
     });
 })
 .catch((err) =>{
-    console.log("Mongo connection failed!!", err);
+    console.log("MONGO db connection failed !!! ", err);
 })
 
 
-// use
-// trycatch Loop OR Promise(resolve,reject) method
+/*
+import express from "express"
+const app = express()
+( async () => {
+    try {
+        await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
+        app.on("errror", (error) => {
+            console.log("ERRR: ", error);
+            throw error
+        })
 
-// use IFFE => "()()" method => for immmidiately function called
+        app.listen(process.env.PORT, () => {
+            console.log(`App is listening on port ${process.env.PORT}`);
+        })
 
-// connectDB()
+    } catch (error) {
+        console.error("ERROR: ", error)
+        throw err
+    }
+})()
 
-// import express from "express";
-// const app = express();
-
-// ( async () => {
-//     try {
-//         await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
-//         app.on("Error", (error) => {
-//             console.error("Err: ", error);
-//             throw error;
-//         });
-//         app.listen(process.env.PORT, () => {
-//             console.log(`App is listning on the port ${process.env.PORT}`);
-//         });
-//     } catch (error) {
-//         console.error("ERROR: ", error);
-//     }
-// })() 
-
-
-
+*/
 
