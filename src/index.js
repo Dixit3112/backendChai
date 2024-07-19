@@ -1,9 +1,12 @@
 // import mongoose from "mongoose";
 // import {DB_NAME} from "./constants.js";
-// improved version of "dotenv" is given below.
+//  // improved version of "dotenv" is given below.
 // require('dotenv').config({path:'./env'});
+import express from "express";
 import connectDB from "./db/index.js";
 import dotenv from "dotenv";
+
+const app = express();
 
 dotenv.config({
     path: "./env"
@@ -17,6 +20,10 @@ connectDB()
     app.on('Error', (err) => {
         console.error(`Server error: ${err.message}`);
         throw err;
+    })
+
+    app.get("/", (req, res) => {
+        res.send("I am dixit for backend developer")
     })
 
     app.listen(port, () => {
