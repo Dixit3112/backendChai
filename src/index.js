@@ -3,8 +3,13 @@
 import express from "express";
 import connectDB from "./db/index.js";
 import dotenv from "dotenv";
+import userRouter from "./routes/user.routes.js";
+// import { app } from "./app.js";
 
 const app = express();
+
+app.use("/api/v1/users", userRouter); 
+
 
 dotenv.config({
     path: "./env"
@@ -23,8 +28,9 @@ connectDB()
     });
 })
 .catch((err) =>{
-    console.log("MONGO db connection failed !!! ", err);
+    console.log("MONGO db connection failed !!!", err);
 })
+
 
 
 /*
