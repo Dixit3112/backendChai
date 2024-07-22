@@ -6,11 +6,11 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
 const fileData= asyncHandler(async (eq, res) => {
     res.status(200).json({apiData: [
-        { id: 1, fullname: "John Doe", emiall: "", username: "Doe1", password: "456@Doe" },
-        { id: 2, fullname: "Jane Doe", emiall: "", username: "Doe2", password: "456@Doe2" },
-        { id: 3, fullname: "Alice Doe", emiall: "", username: "Doe3", password: "456@Doe3" },
-        { id: 4, fullname: "Bob Doe", emiall: "", username: "Doe4", password: "456@Doe4" },
-        { id: 5, fullname: "Charlie Doe", emiall: "", username: "Doe5", password: "456@Doe5" }
+        { id: 1, fullname: "John Doe", emiall: "fesf@gmail.com", username: "Doe1", password: "456@Doe" },
+        { id: 2, fullname: "Jane Doe", emiall: "svdfa@gmail.com", username: "Doe2", password: "456@Doe2" },
+        { id: 3, fullname: "Alice Doe", emiall: "afeaa@gmail.com", username: "Doe3", password: "456@Doe3" },
+        { id: 4, fullname: "Bob Doe", emiall: "aedrt@gmail.com", username: "Doe4", password: "456@Doe4" },
+        { id: 5, fullname: "Charlie Doe", emiall: "nbsef@gmail.com", username: "Doe5", password: "456@Doe5" }
     ] })
 })
 
